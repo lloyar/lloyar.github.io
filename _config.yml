@@ -66,7 +66,7 @@ netease_comment: false
 
 # Analytics settings
 # Baidu Analytics 
-# ba_track_id: 1954725fbf51cffd34318b7489904f44
+ba_track_id: 1954725fbf51cffd34318b7489904f44
 
 # Google Analytics
 #ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
