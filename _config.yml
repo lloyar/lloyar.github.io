@@ -1,22 +1,22 @@
 # Site settings
-title: Hux Blog
-SEOTitle: 黄玄的博客 | Hux Blog
+title: Librarius Blog
+SEOTitle: 李亚龙的博客 | Librarius Blog
 header-img: img/home-bg.jpg
-email: huxpro@gmail.com
-description: "关于前端与设计、黑客与画家 | 黄玄，Web & Mobile Lover，Software Engineer，UX Designer | 这里是 @Hux黄玄 的个人博客，与你一起发现更大的世界。"
-keyword: "黄玄, Hux黄玄, Hux, 鬼栈, huxpro, @huxpro, 黄玄的博客, Hux Blog, 博客, 个人网站, 互联网, Web, JavaScript, 前端, 设计"
-url: "https://huangxuan.me"              # your host, for absolute URL
+email: lloyar@live.com
+description: "Math is my life、Python、Unity、Computer Graphics、TensorFLow、Artificial Intelligence for Unity | 李亚龙，Mathematics Lover，Games Lover | 这里是 @Hux黄玄 的个人博客，世界被数学所描述。"
+keyword: "lloyar, Librarius, Python, Unity, Deep Learning, 数学建模, 李亚龙的博客, Librarius Blog, 博客, 个人网站, 人工智能, 计算机图形学, 游戏"
+url: "https://lloyar.github.io"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 # Publish posts or collection documents with a future date.
 future: true
 
 # SNS settings
-RSS: false
-weibo_username:     huxpro
-zhihu_username:     huxpro
-github_username:    huxpro
-twitter_username:   huxpro
+RSS: ture
+weibo_username:     Librarius_Lee
+zhihu_username:     Librarius
+github_username:    Lloyar
+#twitter_username:   Librarius
 #facebook_username:  huxpro
 #linkedin_username:  firstname-lastname-idxxxx
 
@@ -53,7 +53,11 @@ kramdown:
 
 
 # Disqus settings
-disqus_username: hux
+#disqus_username: Librarius
+
+# LiveRe setttings
+# You can get your uid from https://livere.com/insight/myCode (General web site)
+livere_uid: MTAyMC8zOTgzNC8xNjM2MQ==
 
 # Netease settings
 netease_comment: false
@@ -62,18 +66,18 @@ netease_comment: false
 
 # Analytics settings
 # Baidu Analytics 
-# ba_track_id: [your track id]
+# ba_track_id: 1954725fbf51cffd34318b7489904f44
 
 # Google Analytics
-ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
-ga_domain: huangxuan.me
+#ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
+#ga_domain: huangxuan.me
 
 
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "For the next quantum leap<br>离开世界之前，一切都是过程"
-sidebar-avatar: /img/avatar-hux-ny.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "Math is my life."
+sidebar-avatar: /img/avatar-mini_dragon.png      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
