@@ -14,6 +14,16 @@
                         </a>
                     </li>
                     {% endif %}
+                    {% if site.github_username %}
+                    <li>
+                        <a target="_blank" href="https://github.com/{{ site.github_username }}">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    {% endif %}
                     {% if site.twitter_username %}
                     <li>
                         <a href="https://twitter.com/{{ site.twitter_username }}">
@@ -58,16 +68,6 @@
                         </a>
                     </li>
                     {% endif %}
-                    {% if site.github_username %}
-                    <li>
-                        <a target="_blank" href="https://github.com/{{ site.github_username }}">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    {% endif %}
                     {% if site.linkedin_username %}
                     <li>
                         <a target="_blank" href="https://www.linkedin.com/in/{{ site.linkedin_username }}">
@@ -88,7 +88,7 @@
                         frameborder="0" scrolling="0" width="100px" height="20px"
                         src="https://ghbtns.com/github-btn.html?user=huxpro&repo=huxpro.github.io&type=star&count=true" >
                     </iframe> -->
-                </p>                
+                </p>
             </div>
         </div>
     </div>
