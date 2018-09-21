@@ -13,9 +13,10 @@ future: true
 
 # SNS settings
 RSS: ture
-weibo_username:     Librarius_Lee
-zhihu_username:     Librarius
 github_username:    Lloyar
+zhihu_username:     Librarius
+weibo_username:     Librarius_Lee
+
 #twitter_username:   Librarius
 #facebook_username:  huxpro
 #linkedin_username:  firstname-lastname-idxxxx
@@ -99,16 +100,16 @@ friends: [
     #     title: "Su",
     #     href: "http://su.gallery/"
     # },{
-        title: "Ebn's Blog",
-        href: "http://ebnbin.com/"
+        title: "iq",
+        href: "http://www.iquilezles.org/www/index.htm"
     },{
-        title: "SmdCn's Blog",
-        href: "http://blog.smdcn.net"
+        title: "CandyCat",
+        href: "https://candycat1992.github.io"
     },{
-        title: "David's Game",
-        href: "https://www.ruoyaowu.com/"
+        title: "Librarius",
+        href: "https://steamcommunity.com/id/Lloyar"
     },{
-        title: "DHong Say",
-        href: "http://dhong.co"
+        title: "Some interesting things",
+        href: "https://theuselessweb.com/"
     }
 ]
