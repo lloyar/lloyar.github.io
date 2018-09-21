@@ -3,7 +3,7 @@ title: Librarius Blog
 SEOTitle: 李亚龙的博客 | Librarius Blog
 header-img: img/home-bg.jpg
 email: lloyar@live.com
-description: "Math is my life、Python、Unity、Computer Graphics、TensorFLow、Artificial Intelligence for Unity | 李亚龙，Mathematics Lover，Games Lover | 这里是 @Hux黄玄 的个人博客，世界被数学所描述。"
+description: "Mathematics、Python、Unity、Computer Graphics、TensorFLow、Artificial Intelligence for Unity | 李亚龙，Mathematics Lover，Games Lover | 这里是李亚龙的个人博客 世界被数学所描述。"
 keyword: "lloyar, Librarius, Python, Unity, Deep Learning, 数学建模, 李亚龙的博客, Librarius Blog, 博客, 个人网站, 人工智能, 计算机图形学, 游戏"
 url: "https://lloyar.github.io"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
