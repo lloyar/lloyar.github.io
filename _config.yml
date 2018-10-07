@@ -1,7 +1,7 @@
 # Site settings
 title: Librarius Blog
 SEOTitle: 李亚龙的博客 | Librarius Blog
-header-img: img/home-bg.jpg
+header-img: images/home-bg.jpg
 email: lloyar@live.com
 description: "Mathematics、Python、Unity、Computer Graphics、TensorFLow、Artificial Intelligence for Unity | 李亚龙，Mathematics Lover，Games Lover | 这里是李亚龙的个人博客 世界被数学所描述。"
 keyword: "lloyar, Librarius, Python, Unity, Deep Learning, 数学建模, 李亚龙的博客, Librarius Blog, 博客, 个人网站, 人工智能, 计算机图形学, 游戏"
@@ -78,7 +78,7 @@ ga_track_id: 'UA-126103978-1'            # Format: UA-xxxxxx-xx
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "Math is my life."
-sidebar-avatar: /img/avatar-mini_dragon.png      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /images/avatar-mini_dragon.png      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 

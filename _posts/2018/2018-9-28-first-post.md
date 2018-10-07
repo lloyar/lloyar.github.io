@@ -4,7 +4,7 @@ title:      "我的独立博客"
 subtitle:   "第一篇文章"
 date:       2018-09-28
 author:     "Lee"
-header-img: "img/DinoTossing.jpg"
+header-img: "images/DinoTossing.jpg"
 tags:
     - 杂谈
 ---

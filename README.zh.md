@@ -106,7 +106,7 @@ title:      "Hello 2015"
 subtitle:   "Hello World, Hello Blog"
 date:       2015-01-29 12:00:00
 author:     "Hux"
-header-img: "img/post-bg-2015.jpg"
+header-img: "images/post-bg-2015.jpg"
 tags:
     - Life
 ---
@@ -116,14 +116,14 @@ tags:
 #### SideBar
 
 看右边:
-![](http://huangxuan.me/img/blog-sidebar.jpg)
+![](http://huangxuan.me/images/blog-sidebar.jpg)
 
 设置是在 `_config.yml`文件里面的`Sidebar settings`那块。
 ```
 # Sidebar settings
 sidebar: true  #添加侧边栏
 sidebar-about-description: "简单的描述一下你自己"
-sidebar-avatar: /img/avatar-hux.jpg     #你的大头贴，请使用绝对地址.
+sidebar-avatar: /images/avatar-hux.jpg     #你的大头贴，请使用绝对地址.
 ```
 
 侧边栏是响应式布局的，当屏幕尺寸小于992px的时候，侧边栏就会移动到底部。具体请见bootstrap栅格系统 <http://v3.bootcss.com/css/>
@@ -174,7 +174,7 @@ friends: [
 
 HTML5幻灯片的排版：
 
-![](http://huangxuan.me/img/blog-keynote.jpg)
+![](http://huangxuan.me/images/blog-keynote.jpg)
 
 这部分是用于占用html格式的幻灯片的，一般用到的是 Reveal.js, Impress.js, Slides, Prezi 等等.我认为一个现代化的博客怎么能少了放html幻灯的功能呢~
 

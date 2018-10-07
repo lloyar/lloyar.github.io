@@ -23,7 +23,7 @@ The key of pushing/preloading is to prioritize resources hidden in deep dependen
 
 Routes in MPAs naturally fetch code for that route only, and tend to have a flattening dependency graph. Most scripts depended by Ele.me are just `<script>` elements, so they can be found and fetched by [good old browser preloader][8] in early parsing phase without explicit `<link rel="preload">`. 
 
-![](/img/in-post/post-eleme-pwa/PUSH-link-rel-preload.jpg)
+![](/images/in-post/post-eleme-pwa/PUSH-link-rel-preload.jpg)
 
 To take benefits from HTTP2 Multiplexing, we currently serve all critical resources under a single domain (no more domain sharding), and we are also experimenting on Server Push.
 
@@ -38,7 +38,7 @@ A straightforward rendering is critical for metrics such as First-Meaningful-Pai
 
 This's the part [Service Worker][9] come to join the show. Service Worker is known as a client-side proxy enabling developers to intercept requests and serve responses from cache, but it can also perform initiative fetch to prefetch then precache future resources.
 
-![](/img/in-post/post-eleme-pwa/PRECACHE-future-routes.jpg)
+![](/images/in-post/post-eleme-pwa/PRECACHE-future-routes.jpg)
 
 We already used [Webpack][10] in the build process to do `.vue` compilation and asset versioning, so we create a webpack plugin to help us collecting dependencies into a "precache manifest" and generating a new Service Worker file after each build. This is pretty much like [how SW-Precache works][11]. 
 
@@ -58,7 +58,7 @@ Surprisingly, we found Multi-page PWA is kinda naturally "PRPL"! MPA has already
 So what about the end result?
 
 
-![](/img/in-post/post-eleme-pwa/Lighthouse-before.png)
+![](/images/in-post/post-eleme-pwa/Lighthouse-before.png)
 
 **In [Lighthouse](https://developers.google.com/web/tools/lighthouse/) simulation (3G & 5x Slower CPU), we made Time-To-Interactive around 2 seconds,** and this was benchmarked on our HTTP1 test server. 
 
@@ -75,7 +75,7 @@ Unlike SPA, changing routes in MPA means actual browser navigation happens: The 
 
 So here is the profile (2x slower CPU simulated) of our entry page (most heavy one). Even we can make Time-To-Interactive around 1s in repeat visit, our users can still feel too slow for just "switching a tab".
 
-![](/img/in-post/post-eleme-pwa/msite-Before-Optim.png)
+![](/images/in-post/post-eleme-pwa/msite-Before-Optim.png)
 
 ### Huge JavaScript Re-Startup Cost
 
@@ -135,7 +135,7 @@ First I want to clarify it a little bit. According to the [Scripting section of 
 
 **Then I want to say: A script not blocking parser could still block painting nonetheless.** So here is a reduced test I wrote named **"Minimal Multi-page PWA"**, or MMPWA, which basically render 1000 list items within an `async` (and truly not parser-blocking) script to see if we can get Skeleton Screen painted before scripts get executed. The profile below (over USB debugging on my real Nexus 5) shows my ignorance:
 
-![](/img/in-post/post-eleme-pwa/thisTick-&-Load.png)
+![](/images/in-post/post-eleme-pwa/thisTick-&-Load.png)
 
 Yes, keep your mouth open. The first paint is blocked. I was also surprised here. The reason I guess is that **if we touch DOM so quickly that the browser has still NOT finished previous painting job, our dear browser has to abort every pixel it has drawn, and has to wait until current DOM manipulation task finished and redo the rendering pipeline again.** And this more often happens with a mobile device with a slower CPU/GPU.
 
@@ -143,7 +143,7 @@ Yes, keep your mouth open. The first paint is blocked. I was also surprised here
 
 We indeed encountered this problem when testing our new beautiful Skeleton Screen. Perhaps Vue finishes its job and start to mount nodes too fast ;). But anyway we have to make it slower, or rather lazier. So we try to put DOM manipulation things inside `setTimeout(callback, 0)`, and it works like a charm!
 
-![](/img/in-post/post-eleme-pwa/nextTick-&-Load.png)
+![](/images/in-post/post-eleme-pwa/nextTick-&-Load.png)
 
 
 I think you may curious about how this change performs in the wild, so I have refined MMPWA by rendering 5000 list items rather 1000 to make the differences more obvious, and by designing it in an A/B testing manner. The code is on [Github](https://github.com/Huxpro/mmpwa) and the demo is live on [huangxuan.me/mmpwa/](https://huangxuan.me/mmpwa). Here is also a video for loungers.
@@ -157,7 +157,7 @@ This famous `setTimeout` hack (a.k.a. Zero Delays) looks quite magic,  but it is
 
 So we applied what we learned from MMPWA by putting `new Vue()` inside `setTimeout` and BOOM! We have Skeleton Screen painted consistently after every navigating! Here is the profile after all these optimizations.
 
-![](/img/in-post/post-eleme-pwa/msite-After-Optim.png)
+![](/images/in-post/post-eleme-pwa/msite-After-Optim.png)
 
 Huge improvements right?  This time we hit First Paint (Skeleton Screen Paint) at 400ms and TTI at 600ms. You should really go back to have a before-after comparison in details.
 
@@ -170,7 +170,7 @@ Remember I said I would talk about one issue of `defer` previously? Yes, that's 
 
 Similar improvements can be seen from Lighthouse (Under same server and network environment). A Pro Tip is you should always use lighthouse in a variable controlling approach.
 
-![](/img/in-post/post-eleme-pwa/Lighthouse-after.png)
+![](/images/in-post/post-eleme-pwa/Lighthouse-after.png)
 
 
 ### Performance In the Real World
@@ -223,7 +223,7 @@ Thank you all!
 
 ## Appendix. Architecture Diagram
 
-![](/img/in-post/post-eleme-pwa/Architecture.png)
+![](/images/in-post/post-eleme-pwa/Architecture.png)
 
 
 
