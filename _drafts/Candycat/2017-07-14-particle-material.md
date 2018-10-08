@@ -238,7 +238,7 @@ Shader "Smoke Particle" {
 
 				return o;
 			}
-			
+
 			inline float SampleNoise(float2 uv, float dist) {
 				float2 derivatives = tex2D(_ParticleNoiseTex, uv).rg * 2.0 - 1.0;
 				float noise = tex2D(_ParticleNoiseTex, uv + derivatives * float2(1, -1) * dist).b;
@@ -284,5 +284,3 @@ Shader "Smoke Particle" {
 }
 
 ```
-
-
