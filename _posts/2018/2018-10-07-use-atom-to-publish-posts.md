@@ -4,9 +4,9 @@ title:      "使用Atom发布posts"
 subtitle:   ""
 date:       "2018-10-07 19:50"
 author:     "Lee"
-header-img: "images/2018/10/post-atom.png"
+header-img: "images/2018/10/post-hi-atom.png"
 tags:
-    - Web
+    - Tools
 ---
 
 ## 新的工具！
