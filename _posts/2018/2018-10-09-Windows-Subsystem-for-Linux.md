@@ -1,10 +1,9 @@
 ---
-layout:     "post"
-title:      "Windows Subsystem for Linux"
-subtitle:   "新神器！"
-date:       "2018-10-09 17:54"
-author:     "Lee"
-header-img: "images/2018/10/post-hi-wsl.png"
+layout: article
+title: Windows Subsystem for Linux
+key: 4
+category: blog
+date: 2018-10-09 22:37:00 +08:00
 tags:
     - Tools
 ---

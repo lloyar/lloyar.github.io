@@ -1,12 +1,12 @@
 ---
-layout:     "post"
-title:      "使用Atom发布posts"
-subtitle:   ""
-date:       "2018-10-07 19:50"
-author:     "Lee"
-header-img: "images/2018/10/post-hi-atom.png"
+layout: article
+title: 使用Atom发布posts
+key: 2
+category: blog
+date: 2018-10-07 19:50:00 +08:00
 tags:
     - Tools
+    - 杂谈
 ---
 
 ## 新的工具！

@@ -1,12 +1,11 @@
 ---
-layout: post
+layout: article
 title: 在Jekyll中使用LaTex
-subtitle: MathJax配置方法以及一些问题探讨
-date: '2018-10-08 22:37'
-author: Lee
-header-img: "images/2018/10/post-hi-mathjax.png"
+key: 3
+category: blog
+date: 2018-10-08 22:37:00 +08:00
 tags:
-  - Web
+    - Web
 ---
 
 # Contents

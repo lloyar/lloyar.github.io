@@ -1,116 +1,200 @@
-# Site settings
-title: Librarius Blog
-SEOTitle: 李亚龙的博客 | Librarius Blog
-header-img: images/home-bg.jpg
-email: lloyar@live.com
-description: "Mathematics、Python、Unity、Computer Graphics、TensorFLow、Artificial Intelligence for Unity | 李亚龙，Mathematics Lover，Games Lover | 这里是李亚龙的个人博客 世界被数学所描述。"
-keyword: "lloyar, Librarius, Python, Unity, Deep Learning, 数学建模, 李亚龙的博客, Librarius Blog, 博客, 个人网站, 人工智能, 计算机图形学, 游戏"
-url: "https://lloyar.github.io"              # your host, for absolute URL
-baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
-
-# Publish posts or collection documents with a future date.
-future: true
-
-# SNS settings
-RSS: ture
-github_username:    Lloyar
-zhihu_username:     Librarius
-weibo_username:     Librarius_Lee
-
-#twitter_username:   Librarius
-#facebook_username:  huxpro
-#linkedin_username:  firstname-lastname-idxxxx
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+#
+# ,--------.      ,--.   ,--. ,--.
+# '--.  .--',---.  \  `.'  /,-'  '-.
+#    |  |  | .-. :  .'    \ '-.  .-'
+#    |  |  \   --. /  .'.  \  |  |
+#    `--'   `----''--'   '--' `--'
 
 
 
-# Build settings
-# from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
-highlighter: rouge
-permalink: pretty
-paginate: 10
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","README.zh.md"]
-anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
-# If you have timezone issue (e.g. #68) in China, uncomment to use this:
-#timezone: CN  
+
+## => Site Settings
+##############################
+text_skin: default # "default" (default), "dark", "forest", "ocean", "chocolate", "orange"
+highlight_theme: default # "default" (default), "tomorrow", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
+url     : # the base hostname & protocol for your site e.g. https://www.someone.com
+baseurl : # does not include hostname
+title   : Librarius's Blog
+description: > # this means to ignore newlines until "Language & timezone"
+  Math is my life. | 李亚龙的博客
 
 
+## => Language and Timezone
+##############################
+lang: zh # the language of your site, "en" (default, English), "zh"(简体中文), "zh-Hans"(简体中文), "zh-Hant"(繁體中文)
+timezone: Asia/Shanghai # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for the available values
 
-# Gems
-# from PR#40, to support local preview for Jekyll 3.0
-# make sure you have this gem installed
-# `$ gem install jekyll-paginate`
-plugins: 
+
+## => Author and Social
+##############################
+author:
+  type      : # "person" (default), "organization"
+  name      : Yang Lee
+  url       :
+  avatar    : # path or url of avatar image
+  bio       : Math is my life.
+  email     : lloyar@live.com
+  facebook  : # "user_name" the last part of your profile url, e.g. https://www.facebook.com/user_name
+  twitter   : # "user_name" the last part of your profile url, e.g. https://twitter.com/user_name
+  googleplus: # "user_id"   the last part of your profile url, e.g. https://plus.google.com/u/0/user_id
+  weibo     : Lloyar # "user_id"   the last part of your profile url, e.g. https://www.weibo.com/user_id/profile?...
+  douban    : # "user_name" the last part of your profile url, e.g. https://www.douban.com/people/user_name/
+  linkedin  : # "user_name" the last part of your profile url, e.g. https://www.linkedin.com/in/user_name/
+  github    : Lloyar # "user_name" the last part of your profile url, e.g. https://github.com/user_name
+  npm       : # "user_name" the last part of your profile url, e.g. https://www.npmjs.com/~user_name
+  telegram  : Librarius # "user_name" the last part of your profile url, e.g. https://t.me/user_name
+
+
+## => GitHub Repository (if the site is hosted by GitHub)
+##############################
+repository: Lloyar/lloyar.github.io
+repository_tree: master
+
+
+## => Paths
+##############################
+paths:
+  root    : # title link url, "/" (default)
+  home    : # home layout url, "/" (default)
+  archive : # "/archive.html" (default)
+  rss     : # "/feed.xml" (default)
+
+
+## => Post
+##############################
+## excerpt
+excerpt_separator: <!--more-->
+
+## license
+license: CC-BY-NC-4.0 # "CC-BY-4.0", "CC-BY-SA-4.0", "CC-BY-NC-4.0", "CC-BY-ND-4.0"
+
+## TOC
+toc:
+  selectors: # "h1,h2,h3" (default)
+
+
+## => Markdown Enhancements
+##############################
+## Mathjax
+mathjax: true # false (default), true
+mathjax_autoNumber: true # false (default), true
+
+## Mermaid
+mermaid: # false (default), true
+
+## Chart
+chart: # false (default), true
+
+
+## => Paginate
+##############################
+paginate: 8
+paginate_path: /page:num # don't change this unless for special need
+
+
+## => Sources
+##############################
+sources: # bootcdn (default), unpkg
+
+
+## => Comments
+##############################
+comments:
+  provider: "false" # false (default), "disqus", "gitalk", "custom"
+
+  ## Disqus
+  disqus:
+    shortname: # the Disqus shortname for the site
+
+  ## Gitalk
+  # please refer to https://github.com/gitalk/gitalk for more info.
+  gitalk:
+    clientID    : # GitHub Application Client ID
+    clientSecret: # GitHub Application Client Secret
+    repository  : # GitHub repo
+    owner       : # GitHub repo owner
+    admin: # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
+      # - your GitHub Id
+
+  valine:
+    API_ID: yx3mYSoxlS2KgB9kSiAjMfJ6-gzGzoHsz
+    API_Key: SwGuClmRj7eA8Ty0uxSE2rqA
+
+## => Pageview
+##############################
+pageview:
+  provider: false # false (default), "leancloud", "custom"
+
+  ## Leancloud
+  leancloud:
+    app_id    : # LeanCloud App id
+    app_key   : # LeanCloud App key
+    app_class : # LeanCloud App class
+
+
+## => Analytics
+##############################
+analytics:
+  provider: google # false (default), "google", "custom"
+
+  ## Google Analytics
+  google:
+    tracking_id : UA-126103978-1 # Google Analytics id for the site
+    anonymize_ip: false # Anonymize IP tracking for Analytics
+
+
+## => Build
+##############################
+markdown    : kramdown
+highlighter : rouge
+permalink   : date
+
+exclude:
+  - CHANGELOG.md
+  - HOW_TO_RELEASE.md
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README-*.md
+  - README.md
+  - gulpfile.js
+  - jekyll-text-theme.gemspec
+  - package-lock.json
+  - package.json
+  - /docs
+  - /node_modules
+  - /screenshots
+  - /test
+  - /vendor
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: article
+      license: true
+      aside:
+        toc: true
+      show_edit_on_github: true
+      pageview: true
+
+
+## => Plugins
+##############################
+plugins:
+  - jekyll-feed
   - jekyll-paginate
+  - jekyll-sitemap
   - jemoji
 
-
-# Markdown settings
-# replace redcarpet to kramdown,
-# although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
-# document: http://jekyllrb.com/docs/configuration/#kramdown
-markdown: kramdown
-kramdown:
-  input: GFM                            # use Github Flavored Markdown !important
-
-
-
-# Disqus settings
-#disqus_username: Librarius
-
-# LiveRe setttings
-# You can get your uid from https://livere.com/insight/myCode (General web site)
-livere_uid: MTAyMC8zOTgzNC8xNjM2MQ==
-
-# Netease settings
-netease_comment: false
-
-
-
-# Analytics settings
-# Baidu Analytics 
-#ba_track_id: 1954725fbf51cffd34318b7489904f44
-
-# Google Analytics
-ga_track_id: 'UA-126103978-1'            # Format: UA-xxxxxx-xx
-#ga_domain: huangxuan.me
-
-
-
-# Sidebar settings
-sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "Math is my life."
-sidebar-avatar: /images/avatar-mini_dragon.png      # use absolute URL, seeing it's used in both `/` and `/about/`
-
-
-
-# Featured Tags
-featured-tags: true                     # whether or not using Feature-Tags
-featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
-
-
-
-# Progressive Web Apps
-chrome-tab-theme-color: "#000000"
-service-worker: true
-
-
-
-# Friends
-friends: [
-    {
-    #     title: "Su",
-    #     href: "http://su.gallery/"
-    # },{
-        title: "iq",
-        href: "http://www.iquilezles.org/www/index.htm"
-    },{
-        title: "CandyCat",
-        href: "https://candycat1992.github.io"
-    },{
-        title: "Librarius",
-        href: "https://steamcommunity.com/id/Lloyar"
-    },{
-        title: "Some interesting things",
-        href: "https://theuselessweb.com/"
-    }
-]
+  ## => Server
+##############################
+server_url: "0.0.0.0"
+port: 4001

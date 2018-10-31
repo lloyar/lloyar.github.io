@@ -1,11 +1,10 @@
 ---
-layout:     post
-title:      "我的独立博客"
-subtitle:   "第一篇文章"
-date:       2018-09-28
-author:     "Lee"
-header-img: "images/2018/09/post-hi-DinoTossing.jpg"
-tags:
+layout: article
+title: 我的独立博客
+key: 1
+category: blog
+date: 2018-9-28 00:00:00 +08:00
+tags: 
     - 杂谈
 ---
 
