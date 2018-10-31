@@ -106,7 +106,7 @@ sources: # bootcdn (default), unpkg
 ## => Comments
 ##############################
 comments:
-  provider: "false" # false (default), "disqus", "gitalk", "custom"
+  provider: custom # false (default), "disqus", "gitalk", "custom"
 
   ## Disqus
   disqus:
@@ -122,8 +122,8 @@ comments:
     admin: # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
       # - your GitHub Id
 
-  valine:
-    API_ID: yx3mYSoxlS2KgB9kSiAjMfJ6-gzGzoHsz
+  custom:
+    API_ID:  yx3mYSoxlS2KgB9kSiAjMfJ6
     API_Key: SwGuClmRj7eA8Ty0uxSE2rqA
 
 ## => Pageview

@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Windows Subsystem for Linux
-key: 4
+key: 1000004
 category: blog
 date: 2018-10-09 22:37:00 +08:00
 tags:

@@ -1,12 +1,11 @@
 ---
 layout: article
 title: 使用Atom发布posts
-key: 2
+key: 1000002
 category: blog
 date: 2018-10-07 19:50:00 +08:00
 tags:
     - Tools
-    - 杂谈
 ---
 
 ## 新的工具！
