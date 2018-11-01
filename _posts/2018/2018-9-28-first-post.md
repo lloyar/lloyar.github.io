@@ -2,7 +2,6 @@
 layout: article
 title: 我的独立博客
 key: post-1
-category: blog
 date: 2018-9-28 00:00:00 +08:00
 tags: 
     - 杂谈

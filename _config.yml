@@ -69,6 +69,7 @@ paths:
 ## => Post
 ##############################
 ## excerpt
+
 excerpt_separator: <!--more-->
 
 ## license
@@ -86,7 +87,7 @@ mathjax: true # false (default), true
 mathjax_autoNumber: true # false (default), true
 
 ## Mermaid
-mermaid: # false (default), true
+mermaid: true # false (default), true
 
 ## Chart
 chart: # false (default), true
@@ -130,13 +131,13 @@ comments:
 ## => Pageview
 ##############################
 pageview:
-  provider: false # false (default), "leancloud", "custom"
+  provider: leancloud # false (default), "leancloud", "custom"
 
   ## Leancloud
   leancloud:
-    app_id    : # LeanCloud App id
-    app_key   : # LeanCloud App key
-    app_class : # LeanCloud App class
+    app_id    : yx3mYSoxlS2KgB9kSiAjMfJ6-gzGzoHsz # LeanCloud App id
+    app_key   : SwGuClmRj7eA8Ty0uxSE2rqA # LeanCloud App key
+    app_class : Visitors_Counter # LeanCloud App class
 
 
 ## => Analytics
@@ -147,7 +148,7 @@ analytics:
   ## Google Analytics
   google:
     tracking_id : UA-126103978-1 # Google Analytics id for the site
-    anonymize_ip: false # Anonymize IP tracking for Analytics
+    anonymize_ip: true # Anonymize IP tracking for Analytics
 
 
 ## => Build

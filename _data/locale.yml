@@ -77,9 +77,9 @@ STATISTICS:
 
 LICENSE_ANNOUNCE:
   en:      "This work is licensed under a [LICENSE] license."
-  zh:      "本文遵守 [LICENSE] 许可协议。"
-  zh-Hans: "本文遵守 [LICENSE] 许可协议。"
-  zh-Hant: "本文遵守 [LICENSE] 許可協議。"
+  zh:      "本文遵守 [LICENSE] 许可协议，转载请注明出处。"
+  zh-Hans: "本文遵守 [LICENSE] 许可协议，转载请注明出处。"
+  zh-Hant: "本文遵守 [LICENSE] 許可協議，。"
 
 POST_ON_GITHUB:
   en:      "Edit on Github"

@@ -9,7 +9,7 @@ key: page-about
 ---
 Welcome to my blog! :earth_asia: :earth_africa: :earth_americas:
 
-My Name is Yang Lee, I am a ~~computer graph engineer~~ development engineer working at [CSCEC](http://www.cscec2b.com.cn/).
+My Name is Yang Lee, I am a ~~computer graph engineer~~ civil engineer working at [CSCEC](http://www.cscec2b.com.cn/).
 
 ## Skills
 
