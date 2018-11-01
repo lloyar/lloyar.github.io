@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 使用Atom发布posts
-key: 1000002
+key: post-2
 category: blog
 date: 2018-10-07 19:50:00 +08:00
 tags:

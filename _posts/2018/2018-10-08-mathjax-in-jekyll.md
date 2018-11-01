@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 在Jekyll中使用LaTex
-key: 1000003
+key: post-3
 category: blog
 date: 2018-10-08 22:37:00 +08:00
 tags:
