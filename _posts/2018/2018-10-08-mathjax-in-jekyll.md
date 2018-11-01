@@ -4,26 +4,22 @@ title: 在Jekyll中使用LaTex
 key: post-3
 date: 2018-10-08 22:37:00 +08:00
 tags:
-    - Web
+  - Web
 ---
-
-# Contents
-{:.no_toc}
-
-* A markdown unordered list which will be replaced with the ToC, excluding the "Contents header" from above
-{:toc}
-
-# 前言
-> 首先声明一下，这篇文章的大部分内容来自互联网，这里摘抄一下做个笔记。[^1] [^2]
-
-[^1]:[https://www.weining.me/2014/04/29/jekyll-with-kramdown-and-mathjax](https://www.weining.me/2014/04/29/jekyll-with-kramdown-and-mathjax)
-[^2]:[https://jetorz.github.io/2017-02-16-math-with-jekyll.html](https://jetorz.github.io/2017-02-16-math-with-jekyll.html)
 
 在这里先介绍一下LaTex与MathJax的关系：
 : MathJax是一个开源JavaScript库。它支持LaTeX、MathML、AsciiMath符号，可以运行于所有流行浏览器上。 对大部分用户而言它不需要安装，所以网页作者可以编写包含数学公式的页面并有信心让读者可以自然而容易的浏览到它们。 MathJax允许页面作者使用TeX、LaTeX符号和 MathML 或者 AsciiMath 去书写公式。
 所以，为了能够显示LaTex公式，我选择了MathJax作为本站的数学公式渲染引擎。那么下面我们就开始正式讨论问题吧。
 
+<!--more-->
+
 ## MathJax 是如何被Jekyll调用的
+
+> 首先声明一下，这篇文章的大部分内容来自互联网，这里摘抄一下做个笔记。[^1] [^2]
+
+[^1]:[https://www.weining.me/2014/04/29/jekyll-with-kramdown-and-mathjax](https://www.weining.me/2014/04/29/jekyll-with-kramdown-and-mathjax)
+[^2]:[https://jetorz.github.io/2017-02-16-math-with-jekyll.html](https://jetorz.github.io/2017-02-16-math-with-jekyll.html)
+
 Jekyll 在生成静态站点的时候，会将 `_layout` 文件夹中相应的布局文件，按照文件头部 YAML 语法的声明套用在页面上。举个例子，比如站点的主页就是 `index.html` 可以看到这个文件头布声明为 `layout: default`，因此在生成主页的时候，就会将 `_layout/default.html` 中的布局套用过来。同样， `_posts` 路径下的文章，一般头部都声明为 `layout: post`，因此在生成文章页面的时候，就会套用 `_layout/post.html`。
 
 Jekyll 的第二个特点是，它支持使用 Liquid 语言。引入 Liquid 语言有几个好处，包括：可以定义和使用变量、可以在文件中包含别的文件、以及可以使用逻辑和循环语法。其实这几个功能都可以大大简化我们对站点的设置过程。这里要说的就是第二点，可以在文件中包含别的文件。
@@ -45,6 +41,7 @@ Jekyll 自动创建的站点的所有页面都是基于 `_layout/default.html` �
 因此，基于以上描述，只要将 MathJax 提供的代码片段放在 `_includes/head.html` 中即可。
 
 # 正文
+
 ## 1. 问题
 
 研究数据科学少不了和公式打交道。Markdown 本身是不支持公式的，好在 Markdown 最后可以编译为 HTML 文件，而 HTML 文件可以通过一些办法支持公式。

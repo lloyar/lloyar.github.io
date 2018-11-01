@@ -2,13 +2,17 @@
 layout: article
 title: 我的独立博客
 key: post-1
+excerpt_separator: <!--more-->
 date: 2018-9-28 00:00:00 +08:00
 tags: 
     - 杂谈
 ---
 
-## 终于，有了一个完全属于自己的地方！
 其实很久以前就萌发了搭建个人博客的想法，这要从两年前看到阮一峰的[这篇文章](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)开始。
+
+<!--more-->
+
+## 终于，有了一个完全属于自己的地方！
 
 虽然说能写点东西的地方有很多，比如之前一直在用的[OneNote](https://www.onenote.com)，还有非常流行的[Evernote](https://www.evernote.com)，以及最近才发现的[Notion](https://www.notion.so/)。但前两者只适合写一些私人的东西，很难和别人分享和交流。最后一个工具虽说有发布的功能，但是订阅制的收费方式，以及为了简化流程而过多的“为你考虑”，这些多少让我觉得限制太多，对于一个喜欢折腾，不喜欢失控局面的人来说，一切能被自己掌控，才是我想要的。这就像电影[海上钢琴师][1]1900坦言无法面对在陆上生活的无限抉择，更加喜欢那个可以被自己掌控的，由88个黑白键组成的世界一样。因此，限制重重的免费博客（CSDN、博客园等）更加不是我的菜了。
 
@@ -17,6 +21,7 @@ tags:
 总的来说，我的小天地总算是搭建完成了，还有很多细节的部分只能留在以后去慢慢完善，比如Portfolio页面我一直没弄明白，难道要手工修改吗？那也太艰巨了。
 
 ## 关于搭建博客
+
 好了，该说的差不多也啰嗦完了，如果你也想通过GitHub Pages搭建自己的博客,那么请参考一下内容：
 
 阮一峰的博文：[http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)
