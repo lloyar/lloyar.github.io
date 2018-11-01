@@ -28,8 +28,11 @@ My Name is Yang Lee, I am a ~~computer graph engineer~~ civil engineer working a
 
 如果你有任何问题，请给我发送邮件：[lloyar@live.com](mailto:lloyar@live.com)
 
+## Friends Links | 友情链接
+
+- [Shan San](https://shansan.top/)
+
 ## Some Links | 相关链接
 
-- [About This Blog](/blog/2015/10/14/about-this-blog.html)
-- [Site Log](/blog/site-log.html)
+- [About This Blog](/blog/20s15/10/14/about-this-blog.html)
 - [TeXt Theme](https://github.com/kitian616/jekyll-TeXt-theme) [![GitHub stars](https://img.shields.io/github/stars/kitian616/jekyll-TeXt-theme.svg?style=social&label=Stars)]()
