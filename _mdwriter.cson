@@ -53,10 +53,10 @@ frontMatterDate: "{year}-{month}-{day} {hour}:{minute}:00 +08:00"
 # Front matter template
 frontMatter: """
 ---
-layout:     "{layout}"
-title:      "{title}"
-date:       "{date}"
-key:        "{year}-{month}-{day}_{hour}:{minute}"
+layout:     article
+title:      {title}
+date:       '{date}'
+key:        '{year}-{month}-{day}_{hour}:{minute}'
 tags:
     -
 ---

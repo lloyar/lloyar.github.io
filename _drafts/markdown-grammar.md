@@ -1,5 +1,5 @@
 ---
-layout:     "post"
+layout:     "article"
 title:      "Markdown grammar"
 date:       "2018-11-03 23:57:00 +08:00"
 key:        "2018-11-03_23:57"
