@@ -4,7 +4,7 @@ title: 使用Atom发布posts
 key: post-2
 date: 2018-10-07 19:50:00 +08:00
 tags:
-    - Tools
+  - Tools
 ---
 
 Markdown的编辑器有很多，在线的有[Cmd Markdown][1]，[小书匠][2]，还有最近才从[冯乐乐Blgo][3]上知道的[Prose](http://prose.io/)。离线客户端有[Mark Text](https://github.com/marktext/marktext)，[MWeb](https://zh.mweb.im/index.html)，以及安装了Markdown插件的宇宙最强编辑器[Visual Studio Code][4]。但是把上面所有的选择挨个尝试了后，才发现，他们所有都不能与Jekyll配合的很好。只有Prose是专门为Jekyll优化过的，可是不能自定义posts的frontMatter[^1]，导致每次都要重新填写一遍。

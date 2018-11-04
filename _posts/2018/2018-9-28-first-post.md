@@ -2,10 +2,9 @@
 layout: article
 title: 我的独立博客
 key: post-1
-excerpt_separator: <!--more-->
 date: 2018-9-28 00:00:00 +08:00
-tags: 
-    - 杂谈
+tags:
+  - 杂谈
 ---
 
 其实很久以前就萌发了搭建个人博客的想法，这要从两年前看到阮一峰的[这篇文章](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)开始。
@@ -24,7 +23,7 @@ tags:
 
 好了，该说的差不多也啰嗦完了，如果你也想通过GitHub Pages搭建自己的博客,那么请参考一下内容：
 
-阮一峰的博文：[http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)
+阮一峰的博文：[http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html][4]
 
 Jekyll中文官网：[https://www.jekyll.com.cn/](https://www.jekyll.com.cn/)
 
@@ -40,3 +39,4 @@ Jekyll中文官网：[https://www.jekyll.com.cn/](https://www.jekyll.com.cn/)
 [1]: https://zh.wikipedia.org/wiki/%E6%B5%B7%E4%B8%8A%E9%8B%BC%E7%90%B4%E5%B8%AB#%E7%94%B5%E5%BD%B1%E5%8E%9F%E5%A3%B0
 [2]: https://candycat1992.github.io/2017/02/22/book-second-edition/
 [3]: https://github.com/Huxpro/huxpro.github.io
+[4]: http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html
