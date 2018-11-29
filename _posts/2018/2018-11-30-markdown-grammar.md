@@ -50,14 +50,14 @@ Linking to a PDF for readers to download:
   $         dollar sign
   ```
 
-- 定义：
+- Defined：
 
   ```
   Name
   ： *
   ```
 
-- 目录:
+- ToC:
 
   ```
   # Contents
@@ -67,9 +67,9 @@ Linking to a PDF for readers to download:
   {:toc}
   ```
 
-## 附加样式
+## Additional styles
 
-### 提示
+### Alert
 
 Success Text.
 {:.success}
@@ -83,21 +83,26 @@ Warning Text.
 Error Text.
 {:.error}
 
+markdown:
+
 ```
 Success Text.
 {:.success}
-
+```
+```
 Info Text.
 {:.info}
-
+```
+```
 Warning Text.
 {:.warning}
-
+```
+```
 Error Text.
 {:.error}
 ```
 
-### 标签
+### Tag
 
 `success`{:.success}
 
@@ -107,17 +112,22 @@ Error Text.
 
 `error`{:.error}
 
+markdown:
+
 ```
 `success`{:.success}
-
+```
+```
 `info`{:.info}
-
+```
+```
 `warning`{:.warning}
-
+```
+```
 `error`{:.error}
 ```
 
-### 图片
+### Image
 
 **Border**
 ![Image](/assets/android-chrome-512x512.png){:.border}
