@@ -50,7 +50,7 @@ Raycaster 组件只能绑定在有Camera 组件的GameObjetc 上。
 
 ## 如何使 Event System 运作
 
-1. 确保场景中有一个 Event System ，添加方式为 Hierarchy -> Creat -> UI -> Event System 。
+1. 确保场景中有一个 Event System ，添加方式为 Hierarchy -> Create -> UI -> Event System 。
 2. 添加完成后可以看到 Event System 对象下存在三个组件，一个是所有 GameObject 都必须要有的 Transform ，其次是 Event System 和 Standalone Input Module 。
 3. 在摄像机上附加 Physics Raycaster 组件，该组件必须与 Camera 组件绑定到同一个 GameObject 上。
 4. 创建一个Cube(或者其他任意一个3D物体，但是确保物体上有collion组件，以确保碰撞器检测射线)，作为事件触发的3d物体
