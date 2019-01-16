@@ -1,13 +1,17 @@
 ---
-layout:     article
-title:      UnityEvent
-date:       '2018-12-16 22:48:00 +08:00'
-key:        '2018-12-16_22:48'
+layout: article
+title: C# Delegate、C# Event、UnityEvent
+date: '2018-12-16 22:48:00 +08:00'
+key: '2018-12-16_22:48'
 tags:
-    -
+  - Unity
+  - C#
 ---
 
 Overview
+
+在面向对象的编程范式中，
+
 <!--more-->
 
 
@@ -38,8 +42,6 @@ public class ClickObjectSystem : MonoBehaviour{
   {
     MoveObjectEvent = new MoveObjectEvent();
   }
-  MoveObjectEvent = new MoveObjectEvent();
-
   MoveObjectEvent.Invoke(T);
 }
 ```

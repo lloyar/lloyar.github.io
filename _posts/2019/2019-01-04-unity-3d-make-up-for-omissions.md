@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Unity 3D 拾遗（一）
+title: Unity 拾遗（一）
 date: '2019-01-04 16:36:00 +08:00'
 key: '2019-01-04_16:09'
 tags:
@@ -11,7 +11,7 @@ Overview
 
 ![picture](/images/2018/09/post-hi-DinoTossing.jpg)
 
-从网上整理的一些有关 Unity 的小技巧，大多数新手应该都不怎么会注意到的细节。
+从网上整理的一些有关 Unity 的，大多数新手可能都未曾注意到的细节。
 
 <!--more-->
 

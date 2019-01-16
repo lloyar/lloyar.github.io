@@ -12,22 +12,53 @@ tags:
 <!--more-->
 
 ## Including images and resourcesPermalink
+
 Including an image asset in a post:
 
-```
-![My helpful screenshot](/assets/screenshot.jpg)
-
-```
+  ```
+  ![My helpful screenshot](/assets/screenshot.jpg)
+  ```
 
 Linking to a PDF for readers to download:
 
+  ```
+  ... you can [get the PDF](/assets/mydoc.pdf) directly.
+  ```
+## Reference
+
 ```
-... you can [get the PDF](/assets/mydoc.pdf) directly.
+balabala[^1]
+
+[^1]:*
+or
+[^1]:[text](url)
 ```
+
+## Math
+
+### Inline math separators
+
+```
+\\(R_{\mu \nu} - {1 \over 2}g_{\mu \nu}\,R + g_{\mu \nu} \Lambda = {8 \pi G \over c^4} T_{\mu \nu}\\)
+```
+
+\\(R_{\mu \nu} - {1 \over 2}g_{\mu \nu}\,R + g_{\mu \nu} \Lambda = {8 \pi G \over c^4} T_{\mu \nu}\\)
+
+### Block math separators
+
+```
+$$
+R_{\mu \nu} - {1 \over 2}g_{\mu \nu}\,R + g_{\mu \nu} \Lambda = {8 \pi G \over c^4} T_{\mu \nu}
+$$
+```
+
+$$
+R_{\mu \nu} - {1 \over 2}g_{\mu \nu}\,R + g_{\mu \nu} \Lambda = {8 \pi G \over c^4} T_{\mu \nu}
+$$
 
 ## [kramdown Syntax](https://kramdown.gettalong.org/syntax.html)
 
-- Following is a list of all the characters (character sequences) that can be escaped:
+### Following is a list of all the characters (character sequences) that can be escaped:
 
   ```
   \         backslash
@@ -50,22 +81,63 @@ Linking to a PDF for readers to download:
   $         dollar sign
   ```
 
-- Defined：
+### Lists
 
-  ```
-  Name
-  ： *
-  ```
+```
+* kram
++ down
+- now
 
-- ToC:
+1. kram
+2. down
+3. now
+```
 
-  ```
-  # Contents
-  {:.no_toc}
 
-  * A markdown unordered list which will be replaced with the ToC, excluding the "Contents header" from above
-  {:toc}
-  ```
+### Definition Lists
+
+```
+Name
+： *
+
+kramdown
+: A Markdown-superset converter
+
+Maruku
+:     Another Markdown-superset converter
+```
+
+### ToC
+
+```
+# Contents
+{:.no_toc}
+
+* A markdown unordered list which will be replaced with the ToC, excluding the "Contents header" from above
+{:toc}
+```
+
+### Tables
+
+```
+| Header One     | Header Two     |
+| :------------- | :------------- |
+| Item One       | Item Two       |
+```
+
+### Reference
+
+```
+[id]: url "title"
+```
+
+```
+![][]
+```
+
+```
+[][]
+```
 
 ## Additional styles
 
@@ -89,14 +161,17 @@ markdown:
 Success Text.
 {:.success}
 ```
+
 ```
 Info Text.
 {:.info}
 ```
+
 ```
 Warning Text.
 {:.warning}
 ```
+
 ```
 Error Text.
 {:.error}
@@ -117,12 +192,15 @@ markdown:
 ```
 `success`{:.success}
 ```
+
 ```
 `info`{:.info}
 ```
+
 ```
 `warning`{:.warning}
 ```
+
 ```
 `error`{:.error}
 ```

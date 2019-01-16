@@ -11,7 +11,7 @@ Markdown的编辑器有很多，在线的有[Cmd Markdown][1]，[小书匠][2]�
 
 <!--more-->
 
-[^1]: 我不知道怎么称呼这个部分，按照Markdown Writer的说法叫Custom fields
+[^1]: 我不知道怎么称呼这个部分，按照Markdown Writer 的说法叫 Custom fields
 
 ## 新的工具！
 
