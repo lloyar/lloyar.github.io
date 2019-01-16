@@ -7,6 +7,8 @@ tags:
   - 杂谈
 ---
 
+**Overview**
+
 其实很久以前就萌发了搭建个人博客的想法，这要从两年前看到阮一峰的[这篇文章](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)开始。
 
 <!--more-->

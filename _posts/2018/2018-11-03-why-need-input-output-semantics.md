@@ -8,6 +8,8 @@ tags:
   - Shader
 ---
 
+**Overview**
+
 之前一直不太理解为什么在High Level Shader Language (HLSL)中需要语义(semantics)这种语法。
 
 在[HLSL的官方文档][1] 中，我找到了答案。

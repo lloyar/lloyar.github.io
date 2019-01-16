@@ -7,6 +7,8 @@ tags:
   - Web
 ---
 
+**Overview**
+
 LaTex与MathJax的关系
 : MathJax是一个开源JavaScript库。它支持LaTeX、MathML、AsciiMath符号，可以运行于所有流行浏览器上。 对大部分用户而言它不需要安装，所以网页作者可以编写包含数学公式的页面并有信心让读者可以自然而容易的浏览到它们。 MathJax允许页面作者使用TeX、LaTeX符号和 MathML 或者 AsciiMath 去书写公式。
 所以，为了能够显示LaTex公式，我选择了MathJax作为本站的数学公式渲染引擎。那么下面我们就开始正式讨论问题吧。

@@ -7,6 +7,8 @@ tags:
   - Tools
 ---
 
+**Overview**
+
 之前的[博文](https://lloyar.github.io/2018/09/28/first-post/)我也提到了，为了搭建这个博客，Windows带来了超级多的巨坑！最最令我头痛的一点就是安装Jekyll的过程了，折磨人的程度不敢想象。不过今天我要介绍的东西，能够极大的改善这种情况。
 
 <!--more-->
