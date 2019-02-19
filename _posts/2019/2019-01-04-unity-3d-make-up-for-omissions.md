@@ -7,8 +7,6 @@ tags:
   - Unity
 ---
 
-**Overview**
-
 ![picture](/images/2018/09/post-hi-DinoTossing.jpg)
 
 从网上整理的一些有关 Unity 的，大多数新手可能都未曾注意到的细节。

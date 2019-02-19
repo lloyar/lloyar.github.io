@@ -41,14 +41,14 @@ author:
   bio       : Math is my life.
   email     : lloyar@live.com
   facebook  : # "user_name" the last part of your profile url, e.g. https://www.facebook.com/user_name
-  twitter   : # "user_name" the last part of your profile url, e.g. https://twitter.com/user_name
+  twitter   : LibrariusLee # "user_name" the last part of your profile url, e.g. https://twitter.com/user_name
   googleplus: # "user_id"   the last part of your profile url, e.g. https://plus.google.com/u/0/user_id
-  weibo     : Lloyar # "user_id"   the last part of your profile url, e.g. https://www.weibo.com/user_id/profile?...
-  douban    : # "user_name" the last part of your profile url, e.g. https://www.douban.com/people/user_name/
+  weibo     : # "user_id"   the last part of your profile url, e.g. https://www.weibo.com/user_id/profile?...
+  douban    : #179044213 # "user_name" the last part of your profile url, e.g. https://www.douban.com/people/user_name/
   linkedin  : # "user_name" the last part of your profile url, e.g. https://www.linkedin.com/in/user_name/
-  github    : Lloyar # "user_name" the last part of your profile url, e.g. https://github.com/user_name
+  github    : lloyar # "user_name" the last part of your profile url, e.g. https://github.com/user_name
   npm       : # "user_name" the last part of your profile url, e.g. https://www.npmjs.com/~user_name
-  telegram  : Librarius Lee # "user_name" the last part of your profile url, e.g. https://t.me/user_name
+  telegram  : librariuss # "user_name" the last part of your profile url, e.g. https://t.me/user_name
 
 
 ## => GitHub Repository (if the site is hosted by GitHub)

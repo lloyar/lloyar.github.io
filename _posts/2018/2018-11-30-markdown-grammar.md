@@ -7,8 +7,6 @@ tags:
   - Tools
 ---
 
-**Overview**
-
 这篇文章总结了 GFM、Markdown、kramdown 以及 jekyll-TeXt-theme （本主题）尚未掌握的语法。在还不能完全记住之前，写在这里以备随时查看，免去了去各大官网查找的痛苦。
 
 <!--more-->
