@@ -27,7 +27,10 @@ tags:
 
 #### 打开Terminal.app
 #### 逐个执行以下命令：
-    - `xattr -cr /Applications/Parallels\ Desktop.app`
-    - `chflags nohidden /Applications/Parallels\ Desktop.app`
-    - `codesign --sign - --force --deep /Applications/Parallels\ Desktop.app`
-    - 在/ Applications /目录中打开 Parallels Desktop.app
+`xattr -cr /Applications/Parallels\ Desktop.app`
+
+`chflags nohidden /Applications/Parallels\ Desktop.app`
+
+`codesign --sign - --force --deep /Applications/Parallels\ Desktop.app`
+
+ 在/ Applications /目录中打开 Parallels Desktop.app
