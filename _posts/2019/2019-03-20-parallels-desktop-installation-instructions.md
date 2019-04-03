@@ -34,3 +34,8 @@ tags:
 `codesign --sign - --force --deep /Applications/Parallels\ Desktop.app`
 
  在/ Applications /目录中打开 Parallels Desktop.app
+
+如果碰到 `xcrun: error: invalid active developer path ...` 错误,应该是你的命令行工具出现了问题。解决方式如下：
+{:.error}
+- 以前没有安装过 Command Line Tools 就在终端运行 xcode-select --install ，
+- 如果你之前安装过 Xcode 后又将其卸载掉，就在终端运行 sudo xcode-select --reset 。
