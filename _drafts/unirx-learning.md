@@ -7,7 +7,7 @@ tags:
   - Programming Language
 ---
 
-UniRx 学习笔记
+这篇文章简要介绍了 UniRx 的用途及其特性和语法，并在最后通过 UniRx 实现一个简易 MVP 架构。
 
 <!-- more -->
 
@@ -41,21 +41,23 @@ UniRx 将（时间上）异步事件转化为 (响应式的) 事件序列，通�
 
 Rx 只是⼀套标准，在其他语言也有实现，如果在 Unity 中熟悉了这套标准，在其他语言上也是可以很 快上手的。比如 RxJava、Rx.cpp、SwiftRx 等等。
 
-# UniRx 语句介绍
+# UniRx 介绍
 
 ## 使用 UniRx 实现一个定时器： Timer
 
-```csharp
-
+```cs
 Observable.Timer(TimeSpan.FromSeconds(5))
-          .Subscribe(_ => { //do something });
+          .Subscribe(_ =>
+          {
+            //do something
+          });
 ```
 
 ## Update
 
 在某种情况下，我们不得不让 Update 中充斥着大量的判断，以让程序选择不同的分支进行执行。但 UniRx 可以将多个分支选择语句独立出来，每一种情况对应一个独立的Update。
 
-```csharp
+```cs
 private void Update()
 {
   if (A) {  ...  }
@@ -75,7 +77,7 @@ private void Update()
 
 使用 UniRx 改写后：
 
-```csharp
+```cs
 void Start()
 {
   // A 逻辑,实现了了 xx
@@ -92,7 +94,7 @@ void Start()
             .AddTo(this);
   // ⿏鼠标点击检测逻辑
   Observable.EveryUpdate()
-            .Subscribe(_ => { { if (Input.GetMouseButtonUp(0)) { ... } })
+            .Subscribe(_ => { if (Input.GetMouseButtonUp(0)) { ... } })
             .AddTo(this);
 }
 ```
@@ -121,7 +123,7 @@ void Start()
 
 前面介绍了 UniRx 的 Timer、Update 和 AddTo 这三个API，但是没有介绍过代码。接下来看一看 UniRx 的基本语法。
 
-Observable.XXX().Subscribe() 是非常典型的 UniRx 格式。
+`Observable.XXX().Subscribe()` 是非常典型的 UniRx 格式。
 
 ### 关键字
 
@@ -140,4 +142,191 @@ Subscribe: 订阅，动词，订阅谁呢？当然是前边的 Timer，这里可
 
 但是 UniRx 的侧重点，不是发布者和订阅者这两个概念如何使用，而是事件从发布者到订阅者之间的过程如何处理。
 
-所以两个点不重要，重要的是两点之间的线，也就是事件的传递过程。
+所以两个点不重要，重要的是两点之间的线，也就是事件的传递过程，接下来将逐步了解这个过程。
+
+## 操作符 Where
+
+Where 可以理解为一个条件语句，相当于 if，用于过滤掉不满足的条件。请观察下列代码的差异：
+
+```cs
+Observable.EveryUpdate()
+          .Subscribe(_ =>
+            {
+              if (Input.GetMouseButtonUp(0))
+              {
+                 // do something
+              }
+            })
+          .AddTo(this);
+```
+
+使用 Where 操作符如下：
+
+```cs
+Observable.EveryUpdate()
+          .Where(_ =>  )
+          .Subscribe(_ => Input.GetMouseButtonUp(0))
+            {
+                 // do something
+            })
+          .AddTo(this);
+```
+
+上面这段代码可以理解为：
+
+1. EveryUpdate 是事件的发布者。他会每帧会发送一个事件过来。
+2. Subscribe 是事件的接收者，接收的是 EveryUpdate 发送的事件。
+3. Where 则是在事件的发布者和接收者之间的一个过滤操作。会过滤掉不满足条件的事件。
+
+通过两张图可以更容易的理解。
+
+![unirx-where](/images/2019/05/unirx-where.png)
+
+![unirx-where-2](/images/2019/05/unirx-where-2.png)
+
+事件的本身可以是参数，但是 EveryUpdate 没有参数，所以在 Where 这行代码中不需要接收参数，所以使用 _ 来表示，不用参数。当然 Subscribe 也是⽤用了一个 _ 来接收参数。
+
+## 操作符 First
+
+两张图解决。
+
+![unirx-first](/images/2019/05/unirx-first.png)
+
+![unirx-first-2](/images/2019/05/unirx-first-2.png)
+
+## 对 UGUI 的支持
+按钮点击事件注册:
+
+```cs
+mButton.OnClickAsObservable()
+       .Subscribe(_ =>
+         {
+           // do something
+         });
+```
+Toggle:
+
+```cs
+mToggle.OnValueChangedAsObservable()
+       .Subscribe(on =>
+         {
+           if (on)
+           {
+           // do something
+           }
+         });
+```
+
+当然 UGUI 的事件也支持操作符。
+
+比如，上述 Toggle 的代码可以简化如下:
+
+```cs
+mToggle.OnValueChangedAsObservable()
+       .Where(on=>on)
+       .Subscribe(on =>
+         {
+           // do some thing
+         });
+```
+
+再比如，只能点击一次按钮：
+
+```cs
+mButton.OnClickAsObservable()
+       .First()
+       .Subscribe(_ =>
+         {
+           // do something
+         });
+```
+
+不止如此，还⽀支持 EventSystem 的各种 Trigger 接口的监听。
+比如：Image 本身是 Graphic 类型的，Graphic 类，只要实现 IDragHandler 就可以进行拖拽事件监听。
+但是使用 UniRx 就不用那么麻烦，无需自己实现一些接口。
+代码如下:
+
+```cs
+mImage.OnBeginDragAsObservable().Subscribe(_=>{}); mImage.OnDragAsObservable().Subscribe(eventArgs=>{}); mImage.OnEndDragAsObservable().Subscribe(_=>{})
+```
+
+Unity 的 Event 也是可以使用 AsObservable 进行订阅。
+比如：
+
+```cs
+UnityEvent mEvent;
+void Start()
+{
+  mEvent.AsObservable()
+        .Subscribe(_ =>
+        {
+          // process event
+        });
+}
+```
+
+上文中 Button 组件的 `OnClickAsObservable` 方法其实是对 `button.onClick()` 这个 UnityEvent 进行订阅，即 `button.onClick().AsObservable`。
+
+## ReactiveProperty
+
+ReactiveProperty，响应式属性，是 UniRx 中一个十分强大的概念，它可以方便的监听一个值是否发生了改变。通常方法，需要在属性的访问器中进行值的监听，以选择不同的语句分支，如下所示：
+
+```cs
+public int Age
+{
+  get { ... }
+  set
+  {
+    if (mAge != value)
+    {
+      mAge = value; // send event
+      OnAgeChanged(); // call delegate
+    }
+  }
+}
+
+public void OnAgeChanged() {}
+```
+
+利用 delegate 还可以在类的外部进行监听。
+
+下面再给出一个 UniRx 实现：
+
+```cs
+public ReactiveProperty<int> Age = new ReactiveProperty<int>();
+void Start()
+{
+  Age.Subscribe(age =>
+  {
+    // do age
+  });
+  Age.Value = 5;
+}
+```
+
+也可以把 `ReactiveProperty<int>` 替换成 `IntReactiveProperty` 以进行 Json 序列化。
+
+当任何时候，Age 的值被设置，就会通知所有 Subscribe 的回调函数。
+
+而 Age 可以被 Subscribe 多次。
+
+并且同样支持 First、Where 等操作符。
+
+这样可以实现一个叫做 MVP 的架构模式。
+
+也就是在 Ctrl 中，进行 Model 和 View 的绑定。
+
+Model 的所有属性都是用 ReactiveProperty，然后在 Ctrl 中进行订阅。
+
+通过 View 更改 Model 的属性值。
+
+形成一个 View->Ctrl->Model->Ctrl->View 这么一个事件响应环。
+
+## MVP 实现
+
+上文提到过， UniRx 对 UGUI 进行了极大的增强，而这种增强，可以令我们十分简单的实现 MVP 框架。
+
+### UGUI 增强
+
+UniRx 对 UGUI 的增强原理很简单，就是对 UnityEvent 提供了 AsObservable 方法。
+代码如下：
