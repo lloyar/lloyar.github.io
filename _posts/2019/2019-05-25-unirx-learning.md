@@ -9,7 +9,7 @@ tags:
 
 这篇文章简要介绍了 UniRx 的用途及其特性和语法，并在最后通过 UniRx 实现一个简易 MVP 架构。
 
-<!-- more -->
+<!--more-->
 
 # 何为 UniRx
 
