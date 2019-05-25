@@ -7,7 +7,7 @@ tags:
   - Tools
 ---
 
-Mojave 10.14.3 成功安装 Parallels Desktop 14.1.2-45479
+Mojave 10.14.3 成功安装 Parallels Desktop 14.1.2-45479
 
 <!--more-->
 

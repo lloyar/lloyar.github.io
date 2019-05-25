@@ -4,7 +4,7 @@ title: UniRx Learning（一）
 date: '2019-05-25 10:06:00 +08:00'
 key: '2019-05-23_15:05'
 tags:
-  - Programming Language
+  - Language
 ---
 
 这篇文章简要介绍了 UniRx 的用途及其特性和语法，并在最后通过 UniRx 实现一个简易 MVP 架构。

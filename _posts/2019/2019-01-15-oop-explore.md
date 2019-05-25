@@ -4,7 +4,8 @@ title: 'Hello C# （一）'
 date: '2019-01-15 18:40:00 +08:00'
 key: '2019-01-15_17:03'
 tags:
-  - Programming Language
+  - Language
+  - C#
 ---
 
 # 编程范式探讨 之 面向对象编程

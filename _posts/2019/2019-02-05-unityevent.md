@@ -6,6 +6,7 @@ key: '2019-02-05_10:40'
 tags:
   - Unity
   - 'C#'
+  - Language
 ---
 
 本文讨论了 C# delegate 、C# Event 和 UnityEvent 的关系。
