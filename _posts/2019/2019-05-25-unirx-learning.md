@@ -1,7 +1,7 @@
 ---
 layout: article
-title: UniRx Learning
-date: '2019-05-23 15:05:00 +08:00'
+title: UniRx Learning（一）
+date: '2019-05-25 10:06:00 +08:00'
 key: '2019-05-23_15:05'
 tags:
   - Programming Language
@@ -11,7 +11,7 @@ tags:
 
 <!-- more -->
 
- # 何为 UniRx
+# 何为 UniRx
 
 UniRx 是⼀个 Unity3D 的编程框架。
 
@@ -330,3 +330,131 @@ Model 的所有属性都是用 ReactiveProperty，然后在 Ctrl 中进行订阅
 
 UniRx 对 UGUI 的增强原理很简单，就是对 UnityEvent 提供了 AsObservable 方法。
 代码如下：
+
+```cs
+public Button mButton;
+
+void Start()
+{
+    mButton.onClick.AsObservable().Subscribe(_ => Debug.Log("clicked"));
+}
+```
+
+然后我们再看一下 `onClick` 的定义：
+
+```cs
+public Button.ButtonClickedEvent onClick
+{
+  get
+  {
+    return this.m_OnClick;
+  }
+  set
+  {
+    this.m_OnClick = value;
+  }
+}
+```
+
+然后是 `Button.ButtonClickedEvent` 的定义：
+
+```cs
+public class ButtonClickedEvent : UnityEvent
+{
+}
+```
+
+在此基础上，进一步对每一个 UGUI 控件进行封装，从而可以像这种方式在 UGUI 中使用 UniRx  `mButton.OnClickAsObservable().Subscribe(_ => Debug.Log("clicked"))`，其实它等同于 `mButton.onClick.AsObservable().Subscribe(_ => Debug.Log("clicked"))`。
+
+使用 UniRx 可以很容易地实现 MVP（MVRP）设计模式。
+MVP 的结构图如下所示：
+
+![unirx-mvp](/images/2019/05/unirx-mvp.png)
+
+虽然在 Unity 里无法真的实现 Model-View 绑定，但 Observables 可以通知订阅者，功能上也差不多。这种模式叫 Reactive Presenter：
+
+```cs
+public class ReactivePresenter : MonoBehaviour
+{
+// Presenter is aware of its View (binded in the inspector)
+    public Button mButton;
+
+    public Toggle mToggle;
+
+// State-Change-Events from Model by ReactiveProperty
+    Enemy enemy = new Enemy(1000);
+
+    void Start()
+    {
+// Rx supplies user events from Views and Models in a reactive manner
+        mButton.OnClickAsObservable().Subscribe(_ => enemy.CurrentHp.Value -=
+            99);
+        mToggle.OnValueChangedAsObservable().SubscribeToInteractable(mButton);
+// Models notify Presenters via Rx,and Presenters update their views
+        enemy.CurrentHp.SubscribeToText(GetComponent<Text>());
+        enemy.IsDead.Where(isDead => isDead)
+            .Subscribe(_ => { mToggle.interactable = mButton.interactable = false; });
+    }
+}
+
+// The Mode. All property notify when their values change
+public class Enemy
+{
+    public ReactiveProperty<long> CurrentHp { get; private set; }
+    public IReadOnlyReactiveProperty<bool> IsDead { get; private set; }
+
+    public Enemy(int initialHp)
+    {
+        // Declarative Property
+        CurrentHp = new ReactiveProperty<long>(initialHp);
+        IsDead = CurrentHp.Select(x => x <= 10).ToReactiveProperty();
+    }
+}
+```
+
+在 Unity 中，我们把 Scene 中的 GameObject 当做视图层，这些是在 Unity 的 Hierarchy 中定义的。
+展示/控制层在 Unity 初始化时将视图层绑定。
+SubscribeToText and SubscribeToInteractable 都是简洁的类似绑定的辅助函数。
+
+View -> ReactiveProperty -> Model -> RectiveProperty - View 完全⽤响应式的⽅式连接。UniRx 提供
+了所有的适配⽅法和类，不过其他的 MVVM (or MV*) 框架也可以使⽤。UniRx/ReactiveProperty 只是
+⼀个简单的⼯具包。
+
+## 操作符 Merge
+
+很简单，作用是将多个事件流合并为一个。
+
+```cs
+var leftMouseClickStream = Observable.EveryUpdate().Where(_ => Input.GetMouseButtonDown(0));
+var rightMouseClickStream = Observable.EveryUpdate().Where(_ => Input.GetMouseButtonDown(1));
+Observable.Merge(leftMouseClickStream, rightMouseClickStream)
+          .Subscribe(_ =>
+          {
+            // do something
+          });
+```
+
+以上代码的实现的逻辑是“当⿏标左键或右键点击时都会进⾏处理”。
+
+也就是说，Merge 操作符将 leftMouseClickStream 和 rightMouseClickStream 合并成了⼀个事件流。
+
+如下图所示:
+
+![unirx-merge](/images/2019/05/unirx-merge.png)
+
+## 操作符 Select
+
+`Select` 操作符原本是 LINQ 中的操作符，是选择的意思，⼀般是传⼊⼀个索引 i/index 然后根据索引返回具体的值，请看如下代码：
+
+```cs
+var testNumbers = new List<int>(){ 1,2,3}
+var selectedValue = testNumbers[2];
+```
+
+但是 `Select` 本质，其实是进行了一次 **映射** 操作，它将一个变量 `x`，映射成了 `List<T>[x]`。这其实是函数式编程的思维。如果把 `Select` 理解为 **映射变换** ，而不单单只是选择列表中的某些元素，那在 UniRx 内，`Select` 操作符的意义就能和 LINQ 中的意义进行统一了。在 UniRx 中的 `Select`，请看下图：
+
+![unirx-select](/images/2019/05/unirx-select.png)
+
+# 结束语
+
+到目前位置，我们只谈到了 UniRx 一个极为简短的概括，和它具体实施起来的一些操作。这是我的学习资料导致的，我本人其实更加倾向于写概括性的东西，尤其是在学习的开始阶段，对于整体的把握，我认为要胜过对具体的把握。所以在文章的最后，我到 [ReactiveX](http://reactivex.io/) 官方网站翻了翻文档，他们给出了一个极为全面并且重要的[概述](http://reactivex.io/intro.html)，简洁的表达了 ReactiveX 的核心思想，以及几个重要组件。我认为十分有必要翻阅，并且仔细研读。
