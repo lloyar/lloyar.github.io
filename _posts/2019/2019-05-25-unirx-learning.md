@@ -43,6 +43,31 @@ Rx 只是⼀套标准，在其他语言也有实现，如果在 Unity 中熟悉�
 
 # UniRx 介绍
 
+## UniRx 的基本语法格式
+
+前面介绍了 UniRx 的 Timer、Update 和 AddTo 这三个API，但是没有介绍过代码。接下来看一看 UniRx 的基本语法。
+
+`Observable.XXX().Subscribe()` 是非常典型的 UniRx 格式。
+
+### 关键字
+
+Observable: 可观察的，形容词，形容后边的词(Timer) 是可观察的，我们可以粗暴地把 Observable 后边的理解成发布者。
+
+Timer: 定时器，名词，被 Observable 描述，所以是发布者，是事件的发送方。
+
+Subscribe: 订阅，动词，订阅谁呢？当然是前边的 Timer，这里可以理解成订阅者，也就是事件的接收方。
+
+连起来则是:可被观察(监听)的.Timer( ).订阅( ) -> 订阅可被观察的定时器。
+
+逻辑关系：
+
+- Timer 是可观察的。
+- 可观察的才能被订阅
+
+但是 UniRx 的侧重点，不是发布者和订阅者这两个概念如何使用，而是事件从发布者到订阅者之间的过程如何处理。
+
+所以两个点不重要，重要的是两点之间的线，也就是事件的传递过程，接下来将逐步了解这个过程。
+
 ## 使用 UniRx 实现一个定时器： Timer
 
 ```cs
@@ -53,7 +78,9 @@ Observable.Timer(TimeSpan.FromSeconds(5))
           });
 ```
 
-## Update
+##  UniRx 的一些简单API
+
+### Update
 
 在某种情况下，我们不得不让 Update 中充斥着大量的判断，以让程序选择不同的分支进行执行。但 UniRx 可以将多个分支选择语句独立出来，每一种情况对应一个独立的Update。
 
@@ -99,15 +126,15 @@ void Start()
 }
 ```
 
-## AddTo
+### AddTo
 
 字面意思很简单，就是添加到。添加到哪里呢？添加到 Unity 的 GameObject 或者 MonoBehaviour。
 
-### 为什么要添加到 GameObject 或者 MonoBehaviour
+#### 为什么要添加到 GameObject 或者 MonoBehaviour
 
 是因为，GameObject 和 MonoBehaviour 可以获取到 OnDestroy 事件。也就是 GameObject 或者 MonoBehaviour 的销毁事件。 这个销毁事件可以通过 AddTo 操作符 与 UniRx 进行销毁事件的绑定，也就是当 GameObject 或者 MonoBehaviour 被销毁时，同样去销毁正在进行的 UniRx 任务。
 
-### AddTo 实现
+#### AddTo 实现
 
 本质上， AddTo 是一个静态扩展关键字，他对 IDisposable 进行了扩展。
 
@@ -115,36 +142,11 @@ void Start()
 
 当 GameObject 销毁时，就会调用 IDisposable 的 OnDispose 这个方法。
 
-### AddTo 设计动机
+#### AddTo 设计动机
 
 有了 AddTo，在开启 Observable.EveryUpdate 时调用当前脚本的方法，则不会造成引用异常等错误，它使得 UniRx 的使用更加安全。
 
-## UniRx 的基本语法格式
-
-前面介绍了 UniRx 的 Timer、Update 和 AddTo 这三个API，但是没有介绍过代码。接下来看一看 UniRx 的基本语法。
-
-`Observable.XXX().Subscribe()` 是非常典型的 UniRx 格式。
-
-### 关键字
-
-Observable: 可观察的，形容词，形容后边的词(Timer) 是可观察的，我们可以粗暴地把 Observable 后边的理解成发布者。
-
-Timer: 定时器，名词，被 Observable 描述，所以是发布者，是事件的发送方。
-
-Subscribe: 订阅，动词，订阅谁呢？当然是前边的 Timer，这里可以理解成订阅者，也就是事件的接收方。
-
-连起来则是:可被观察(监听)的.Timer( ).订阅( ) -> 订阅可被观察的定时器。
-
-逻辑关系：
-
-- Timer 是可观察的。
-- 可观察的才能被订阅
-
-但是 UniRx 的侧重点，不是发布者和订阅者这两个概念如何使用，而是事件从发布者到订阅者之间的过程如何处理。
-
-所以两个点不重要，重要的是两点之间的线，也就是事件的传递过程，接下来将逐步了解这个过程。
-
-## 操作符 Where
+### 操作符 Where
 
 Where 可以理解为一个条件语句，相当于 if，用于过滤掉不满足的条件。请观察下列代码的差异：
 
@@ -186,7 +188,7 @@ Observable.EveryUpdate()
 
 事件的本身可以是参数，但是 EveryUpdate 没有参数，所以在 Where 这行代码中不需要接收参数，所以使用 _ 来表示，不用参数。当然 Subscribe 也是⽤用了一个 _ 来接收参数。
 
-## 操作符 First
+### 操作符 First
 
 两张图解决。
 
@@ -194,7 +196,42 @@ Observable.EveryUpdate()
 
 ![unirx-first-2](/images/2019/05/unirx-first-2.png)
 
-## 对 UGUI 的支持
+### 操作符 Merge
+
+很简单，作用是将多个事件流合并为一个。
+
+```cs
+var leftMouseClickStream = Observable.EveryUpdate().Where(_ => Input.GetMouseButtonDown(0));
+var rightMouseClickStream = Observable.EveryUpdate().Where(_ => Input.GetMouseButtonDown(1));
+Observable.Merge(leftMouseClickStream, rightMouseClickStream)
+          .Subscribe(_ =>
+          {
+            // do something
+          });
+```
+
+以上代码的实现的逻辑是“当⿏标左键或右键点击时都会进⾏处理”。
+
+也就是说，Merge 操作符将 leftMouseClickStream 和 rightMouseClickStream 合并成了⼀个事件流。
+
+如下图所示:
+
+![unirx-merge](/images/2019/05/unirx-merge.png)
+
+### 操作符 Select
+
+`Select` 操作符原本是 LINQ 中的操作符，是选择的意思，⼀般是传⼊⼀个索引 i/index 然后根据索引返回具体的值，请看如下代码：
+
+```cs
+var testNumbers = new List<int>(){ 1,2,3}
+var selectedValue = testNumbers[2];
+```
+
+但是 `Select` 本质，其实是进行了一次 **映射** 操作，它将一个变量 `x`，映射成了 `List<T>[x]`。这其实是函数式编程的思维。如果把 `Select` 理解为 **映射变换** ，而不单单只是选择列表中的某些元素，那在 UniRx 内，`Select` 操作符的意义就能和 LINQ 中的意义进行统一了。在 UniRx 中的 `Select`，请看下图：
+
+![unirx-select](/images/2019/05/unirx-select.png)
+
+### 对 UGUI 的支持
 按钮点击事件注册:
 
 ```cs
@@ -267,7 +304,7 @@ void Start()
 
 上文中 Button 组件的 `OnClickAsObservable` 方法其实是对 `button.onClick()` 这个 UnityEvent 进行订阅，即 `button.onClick().AsObservable`。
 
-## ReactiveProperty
+### ReactiveProperty
 
 ReactiveProperty，响应式属性，是 UniRx 中一个十分强大的概念，它可以方便的监听一个值是否发生了改变。通常方法，需要在属性的访问器中进行值的监听，以选择不同的语句分支，如下所示：
 
@@ -419,41 +456,6 @@ SubscribeToText and SubscribeToInteractable 都是简洁的类似绑定的辅助
 View -> ReactiveProperty -> Model -> RectiveProperty - View 完全⽤响应式的⽅式连接。UniRx 提供
 了所有的适配⽅法和类，不过其他的 MVVM (or MV*) 框架也可以使⽤。UniRx/ReactiveProperty 只是
 ⼀个简单的⼯具包。
-
-## 操作符 Merge
-
-很简单，作用是将多个事件流合并为一个。
-
-```cs
-var leftMouseClickStream = Observable.EveryUpdate().Where(_ => Input.GetMouseButtonDown(0));
-var rightMouseClickStream = Observable.EveryUpdate().Where(_ => Input.GetMouseButtonDown(1));
-Observable.Merge(leftMouseClickStream, rightMouseClickStream)
-          .Subscribe(_ =>
-          {
-            // do something
-          });
-```
-
-以上代码的实现的逻辑是“当⿏标左键或右键点击时都会进⾏处理”。
-
-也就是说，Merge 操作符将 leftMouseClickStream 和 rightMouseClickStream 合并成了⼀个事件流。
-
-如下图所示:
-
-![unirx-merge](/images/2019/05/unirx-merge.png)
-
-## 操作符 Select
-
-`Select` 操作符原本是 LINQ 中的操作符，是选择的意思，⼀般是传⼊⼀个索引 i/index 然后根据索引返回具体的值，请看如下代码：
-
-```cs
-var testNumbers = new List<int>(){ 1,2,3}
-var selectedValue = testNumbers[2];
-```
-
-但是 `Select` 本质，其实是进行了一次 **映射** 操作，它将一个变量 `x`，映射成了 `List<T>[x]`。这其实是函数式编程的思维。如果把 `Select` 理解为 **映射变换** ，而不单单只是选择列表中的某些元素，那在 UniRx 内，`Select` 操作符的意义就能和 LINQ 中的意义进行统一了。在 UniRx 中的 `Select`，请看下图：
-
-![unirx-select](/images/2019/05/unirx-select.png)
 
 # 结束语
 
