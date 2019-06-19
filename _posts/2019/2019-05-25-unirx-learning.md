@@ -45,7 +45,7 @@ Rx 只是⼀套标准，在其他语言也有实现，如果在 Unity 中熟悉�
 
 ## UniRx 的基本语法格式
 
-前面介绍了 UniRx 的 Timer、Update 和 AddTo 这三个API，但是没有介绍过代码。接下来看一看 UniRx 的基本语法。
+先来看一看 UniRx 的基本语法。
 
 `Observable.XXX().Subscribe()` 是非常典型的 UniRx 格式。
 
@@ -459,4 +459,4 @@ View -> ReactiveProperty -> Model -> RectiveProperty - View 完全⽤响应式�
 
 # 结束语
 
-到目前位置，我们只谈到了 UniRx 一个极为简短的概括，和它具体实施起来的一些操作。这是我的学习资料导致的，我本人其实更加倾向于写概括性的东西，尤其是在学习的开始阶段，对于整体的把握，我认为要胜过对具体的把握。所以在文章的最后，我到 [ReactiveX](http://reactivex.io/) 官方网站翻了翻文档，他们给出了一个极为全面并且重要的[概述](http://reactivex.io/intro.html)，简洁的表达了 ReactiveX 的核心思想，以及几个重要组件。我认为十分有必要翻阅，并且仔细研读。
+到目前为止，我们只谈到了 UniRx 一个极为简短的概括，和它具体实施起来的一些操作，这是我的学习资料导致的。我本人其实更加倾向于写概括性的东西，尤其是在学习的开始阶段，对于整体的把握，我认为要胜过对具体的把握。所以在文章的最后，我到 [ReactiveX](http://reactivex.io/) 官方网站翻了翻文档，他们给出了一个极为全面并且重要的[概述](http://reactivex.io/intro.html)，简洁的表达了 ReactiveX 的核心思想，以及几个重要组件。我认为十分有必要翻阅，并且仔细研读。

@@ -36,6 +36,9 @@ Alfred 是 Mac 上当之无愧的效率神器，强大的搜索功能以及可�
 
 为了不让后来者继续这么折腾，在 [这里](/assets/files/yinxiang.alfredworkflow) 把修改过后的 `.alfredworkflow` 文件分享出来，开箱即食。😋
 
+注：该脚本已经无法支持最新版 Alfred 4 ，大家可以在[官方论坛](https://www.alfredforum.com/topic/840-evernote-workflow-9-beta-4-alfred-4/)下载最新支持，然后按照上面的方式做处理。目前博主已经全面转为 DEVONthink 3 ，它的自动化程度更加高，对 Automation 的支持相当完善，有想一起拼单的同学可以联系我。
+{:.warning}
+
 # 正文 - 使用说明
 
 ## 搜索
