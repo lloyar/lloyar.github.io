@@ -4,14 +4,16 @@ title:      Teach Yourself Programming in Ten Years
 date:       '2020-01-01 10:57:00 +08:00'
 key:        '2020-01-01_10:57'
 tags:
-    - 转载
+    - 他山之石
 ---
 
 十年，一剑
 
 <!--more-->
 
-Author: Peter NorviG
+Author: [Peter NorviG][46df54ac]
+
+  [46df54ac]: http://norvig.com/21-days.html "原文"
 
 ## Why is everyone in such a rush？
 
