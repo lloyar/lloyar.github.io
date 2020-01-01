@@ -11,9 +11,7 @@ tags:
 
 <!--more-->
 
-# Teach Yourself Programming in Ten Years
-
-Peter NorviG
+Author: Peter NorviG
 
 ## Why is everyone in such a rush？
 
@@ -112,15 +110,12 @@ Fred Brooks, in his essay No Silver Bullet identified a three-part plan for find
 弗雷德·布鲁克斯在他的书《没有银弹》中给出了三条建议：
 
 1. Systematically identify top designers as early as possible.
-
   尽早地系统地识别出顶级设计师
 
-2. Assign a career mentor to be responsible for the development of the prospect and carefully keep a career file.
-
+1. Assign a career mentor to be responsible for the development of the prospect and carefully keep a career file.
   每个人给分配一个职业规划的导师
 
-3. Provide opportunities for growing designers to interact and stimulate each other.
-
+1. Provide opportunities for growing designers to interact and stimulate each other.
   让成长中的设计师有机会互相切磋武艺
 
 This assumes that some people already have the qualities necessary for being a great designer; the job is to properly coax them along. Alan Perlis put it more succinctly: “Everyone can be taught to sculpt: Michelangelo would have had to be taught how not to. So it is with the great programmers”. Perlis is saying that the greats have some internal quality that transcends their training. But where does the quality come from? Is it innate? Or do they develop it through diligence? As Auguste Gusteau (the fictional chef in Ratatouille) puts it, “anyone can cook, but only the fearless can be great.” I think of it more as willingness to devote a large portion of one’s life to deliberative practice. But maybe fearless is a way to summarize that. Or, as Gusteau’s critic, Anton Ego, says: “Not everyone can become a great artist, but a great artist can come from anywhere.”
